@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit
+{% endblock %}
+
+{% block body %}
+
+   <h1>{{title}}</h1>
+  <form method="POST" action="{%url 'edit'%}" style="display: flex; flex-direction: column; align-items: flex-start;">
+    {% csrf_token %}
+    <input type="hidden" name = "t" value="{{title}}" />
+    <textarea name="c" placeholder="Type your markdown here" style="height: 200px; resize: vertical;">{{content}}</textarea>
+    <input type="submit" value="Save" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-top: 15px;"/>
+  </form>
+{% endblock %}
